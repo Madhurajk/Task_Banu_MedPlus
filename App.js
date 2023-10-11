@@ -1,20 +1,78 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
+import Icon from 'react-native-ico-material-design';
+import { Login, Signup, Welcome, Home, Doctor, Pharmacy, Diagnostics } from "./screens";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+export default class App extends React.Component {
+
+
+  render(){
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  
+ <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName='Welcome'
+      >
+        <Stack.Screen
+          name="Welcome"
+          component={Welcome}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="Signup"
+          component={Signup}
+          options={{
+            headerShown: false
+          }}
+        />
+         <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false
+          }}
+        />
+         <Stack.Screen
+          name="Doctor"
+          component={Doctor}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="Pharmacy"
+          component={Pharmacy}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="Diagnostics"
+          component={Diagnostics}
+          options={{
+            headerShown: false
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+
+
+
   );
 }
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
